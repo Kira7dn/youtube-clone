@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useMemo } from "react";
 import ChannelHeader from "@/component/ChannelHeader";
 import { Box } from "@mui/material";
-import CardList from "@/component/CardList";
+import VideoList from "@/component/VideoList";
 
 const ChannelDetail = () => {
   const { id } = useParams();
@@ -12,7 +12,7 @@ const ChannelDetail = () => {
   return (
     <Box>
       {channelData && <ChannelHeader meta={channelData.meta} />}
-      {channelData?.data && <CardList videos={channelData.data} />}
+      {channelData?.data && <VideoList videos={channelData.data} />}
     </Box>
   );
 };

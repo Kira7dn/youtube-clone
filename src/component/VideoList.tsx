@@ -8,7 +8,7 @@ type Props = {
   direction?: string;
 };
 
-const CardList = ({ videos, direction }: Props) => {
+const VideoList = ({ videos, direction }: Props) => {
   return (
     <Stack
       flexWrap="wrap"
@@ -29,4 +29,4 @@ const CardList = ({ videos, direction }: Props) => {
   );
 };
 
-export default CardList;
+export default VideoList;

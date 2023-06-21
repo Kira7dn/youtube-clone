@@ -5,15 +5,13 @@ import { Feed, VideoDetail, ChannelDetail, SearchFeed } from "@/scenes";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { themeSettings } from "@/theme.ts";
 import { useMemo, useState } from "react";
-import { useGetSearchQuery } from "@/state/api";
 import SideBar from "@/component/SideBar";
 import { categories } from "@/utils/constants";
 
 function App() {
   const theme = useMemo(() => createTheme(themeSettings), []);
   const [selectedCategory, setCategory] = useState("New");
-  const { data } = useGetSearchQuery(selectedCategory);
-  const videos = useMemo(() => data && data.data, [data]);
+
   return (
     <Router>
       <ThemeProvider theme={theme}>
@@ -63,12 +61,7 @@ function App() {
               <Routes>
                 <Route
                   path="/"
-                  element={
-                    <Feed
-                      selectedCategory={selectedCategory}
-                      videos={videos || []}
-                    />
-                  }
+                  element={<Feed selectedCategory={selectedCategory} />}
                 />
                 <Route path="/video/:id" element={<VideoDetail />} />
                 <Route path="/channel/:id" element={<ChannelDetail />} />

@@ -1,4 +1,4 @@
-import CardList from "@/component/CardList";
+import VideoList from "@/component/VideoList";
 import { Typography, useTheme } from "@mui/material";
 import { useGetSearchQuery } from "@/state/api";
 import { useParams } from "react-router-dom";
@@ -45,7 +45,7 @@ const SearchFeed = () => {
             Videos
           </span>
         </Typography>
-        <CardList videos={data.data} />
+        <VideoList videos={data.data} />
       </div>
     );
   }

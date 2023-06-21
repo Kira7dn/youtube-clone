@@ -1,7 +1,7 @@
 // import React from "react";
 import { VideoDetailResponse } from "@/state/api";
 import ReactPlayer from "react-player/youtube";
-import { Box, Typography, Card, CardContent } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -17,27 +17,23 @@ const VideoPlayer = ({ video }: Props) => {
         className="react-player"
         controls
       />
-      <Box>
-        <Typography variant="h3">{video.title}</Typography>
-        <Card sx={{}}>
-          <CardContent sx={{}}>
-            <Link to={`channel/${video.channelId}`}>
-              <Typography variant="subtitle1" fontWeight="bold">
-                {video.channelTitle}
-              </Typography>
-            </Link>
-
-            <Typography variant="subtitle2" color="gray">
-              {`${Number(video.viewCount).toLocaleString()} views`}
-            </Typography>
-            <Typography variant="subtitle2" color="gray">
-              {video.description}
-            </Typography>
-            <Typography variant="subtitle2" color="gray">
-              {video.publishDate}
-            </Typography>
-          </CardContent>
-        </Card>
+      <Box sx={{ padding: "4px", marginTop: "8px" }}>
+        <Typography variant="h3" gutterBottom>
+          {video.title}
+        </Typography>
+        <Link to={`channel/${video.channelId}`}>
+          <Typography
+            variant="h4"
+            fontWeight="bold"
+            sx={{ fontSize: "16px" }}
+            gutterBottom
+          >
+            {video.channelTitle}
+          </Typography>
+        </Link>
+        <Typography variant="subtitle2" color="gray">
+          {`${Number(video.viewCount).toLocaleString()} views`}
+        </Typography>
       </Box>
     </Box>
   );

@@ -2,7 +2,7 @@
 import { useGetRelatedVideoQuery, useGetVideoDetailQuery } from "@/state/api";
 import { useParams } from "react-router-dom";
 import VideoPlayer from "@/component/VideoPlayer";
-import CardList from "@/component/CardList";
+import VideoList from "@/component/VideoList";
 import { Box } from "@mui/material";
 import Loader from "@/component/Loader";
 
@@ -74,7 +74,7 @@ const VideoDetail = () => {
           alignItems="center"
         >
           {relatedVideos?.data && (
-            <CardList videos={relatedVideos.data} direction="column" />
+            <VideoList videos={relatedVideos.data} direction="column" />
           )}
         </Box>
       </Box>
